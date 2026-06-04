@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO META ─────────────────────────────────────────── -->
+  <title>Galal Ayman — MIS Graduate & Technology Enthusiast</title>
+  <meta name="description" content="Portfolio of Galal Ayman — MIS graduate from Egypt interested in IT support, networking, AI-assisted development, and technology products." />
+  <meta name="keywords" content="Galal Ayman, MIS graduate, IT support, networking, Python, AI tools, Egypt, technology" />
+  <meta name="author" content="Galal Ayman" />
+
+  <!-- ── OPEN GRAPH (social sharing previews) ─────────────── -->
+  <meta property="og:title" content="Galal Ayman — MIS Graduate & Technology Enthusiast" />
+  <meta property="og:description" content="MIS graduate passionate about IT support, networking, AI-assisted development, and building technology products." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://galalayman.github.io" />
+
+  <!-- ── CANONICAL URL ────────────────────────────────────── -->
+  <link rel="canonical" href="https://galalayman.github.io" />
+
+  <!-- ── FONTS ────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --bg:        #0a0e17;
+      --bg2:       #0f1522;
+      --bg3:       #141c2e;
+      --border:    #1e2d4a;
+      --accent:    #3b82f6;
+      --accent2:   #60a5fa;
+      --accent-dim:#1d4ed8;
+      --green:     #22d3a0;
+      --amber:     #f59e0b;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --mono:      'Space Mono', monospace;
+      --sans:      'DM Sans', sans-serif;
+      --radius:    12px;
+      --glow:      0 0 24px rgba(59,130,246,.25);
+    }
+
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Skip-to-content link for keyboard/screen reader users */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: .5em 1em;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: .8rem;
+      z-index: 999;
+      text-decoration: none;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    ::selection { background: var(--accent); color: #fff; }
+
+    /* ─── NOISE OVERLAY ──────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+      aria-hidden: true;
+    }
+
+    /* ─── GRID BACKGROUND ────────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: rgba(10,14,23,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: .85rem;
+      color: var(--accent);
+      letter-spacing: .05em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: .72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s;
+      padding: .2em 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--accent2); outline: none; border-bottom: 1px solid var(--accent2); }
+
+    /* ─── LAYOUT ─────────────────────────────────────────── */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    section { padding: 5rem 0 2rem; }
+    section:first-child { padding-top: 7rem; }
+
+    /* ─── SECTION LABEL ──────────────────────────────────── */
+    .section-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: .68rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent-dim);
+      background: rgba(59,130,246,.06);
+      border-radius: 4px;
+      padding: .2em .7em;
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-family: var(--mono);
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    #hero {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 6rem;
+    }
+
+    .hero-status {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--mono);
+      font-size: .75rem;
+      color: var(--green);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp .6s .2s forwards;
+    }
+
+    .status-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: .4; }
+    }
+
+    .hero-name {
+      font-family: var(--mono);
+      font-size: clamp(2.4rem, 9vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp .6s .35s forwards;
+    }
+
+    .hero-name .highlight { color: var(--accent); }
+
+    .hero-role {
+      font-family: var(--mono);
+      font-size: clamp(.85rem, 2.5vw, 1rem);
+      color: var(--muted);
+      margin-top: .75rem;
+      letter-spacing: .04em;
+      opacity: 0;
+      animation: fadeUp .6s .5s forwards;
+    }
+
+    .hero-role .sep { color: var(--border); margin: 0 .4em; }
+
+    .hero-desc {
+      max-width: 520px;
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp .6s .65s forwards;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 2.2rem;
+      opacity: 0;
+      animation: fadeUp .6s .8s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-family: var(--mono);
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: .65em 1.3em;
+      border-radius: 6px;
+      transition: all .2s;
+      cursor: pointer;
+    }
+
+    .btn:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+      box-shadow: var(--glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(59,130,246,.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ─── DIVIDER ─────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .about-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .about-card:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.8;
+    }
+
+    .about-card p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .info-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+
+    .info-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      transition: border-color .2s;
+    }
+
+    .info-item:hover { border-color: var(--accent-dim); }
+
+    .info-label {
+      font-family: var(--mono);
+      font-size: .62rem;
+      color: var(--accent);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .3rem;
+    }
+
+    .info-value {
+      font-size: .88rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ─── SKILLS ──────────────────────────────────────────── */
+    .skills-block {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .skill-group {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.4rem;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .skill-group:hover {
+      border-color: var(--accent-dim);
+      transform: translateY(-2px);
+    }
+
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: .7rem;
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .skill-group-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: .72rem;
+      padding: .3em .8em;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--bg3);
+      transition: all .2s;
+    }
+
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent2);
+      background: rgba(59,130,246,.08);
+    }
+
+    .tag.featured {
+      border-color: var(--accent-dim);
+      color: var(--accent2);
+      background: rgba(59,130,246,.1);
+    }
+
+    .tag.green {
+      border-color: rgba(34,211,160,.3);
+      color: var(--green);
+      background: rgba(34,211,160,.07);
+    }
+
+    .tag.amber {
+      border-color: rgba(245,158,11,.3);
+      color: var(--amber);
+      background: rgba(245,158,11,.07);
+    }
+
+    /* ─── PROJECTS ────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-decoration: none;
+      display: block;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--green));
+      opacity: 0;
+      transition: opacity .25s;
+    }
+
+    .project-card:hover,
+    .project-card:focus-visible {
+      border-color: var(--accent-dim);
+      transform: translateY(-3px);
+      box-shadow: var(--glow);
+      outline: none;
+    }
+
+    .project-card:hover::before,
+    .project-card:focus-visible::before { opacity: 1; }
+
+    /* In-progress card style */
+    .project-card.in-progress {
+      border-style: dashed;
+      border-color: rgba(245,158,11,.3);
+    }
+    .project-card.in-progress:hover { border-color: var(--amber); box-shadow: 0 0 24px rgba(245,158,11,.15); }
+    .project-card.in-progress::before { background: linear-gradient(90deg, var(--amber), var(--green)); }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: .75rem;
+      gap: .5rem;
+    }
+
+    .project-name {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-badge {
+      font-family: var(--mono);
+      font-size: .6rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .2em .6em;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .badge-live {
+      background: rgba(34,211,160,.1);
+      color: var(--green);
+      border: 1px solid rgba(34,211,160,.3);
+    }
+
+    .badge-wip {
+      background: rgba(245,158,11,.1);
+      color: var(--amber);
+      border: 1px solid rgba(245,158,11,.3);
+    }
+
+    .project-arrow {
+      font-size: 1.1rem;
+      color: var(--muted);
+      transition: color .2s, transform .2s;
+    }
+
+    .project-card:hover .project-arrow {
+      color: var(--accent);
+      transform: translate(2px, -2px);
+    }
+
+    .project-desc {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .project-link {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--accent);
+      letter-spacing: .04em;
+      word-break: break-all;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    .contact-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: .92rem;
+      max-width: 420px;
+      margin: 0 auto 1.8rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      justify-content: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-family: var(--mono);
+      font-size: .75rem;
+      color: var(--muted);
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: .55em 1em;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .contact-item:hover,
+    .contact-item:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent2);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .contact-item svg {
+      width: 14px; height: 14px;
+      fill: currentColor;
+      flex-shrink: 0;
+      aria-hidden: true;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 3rem 1.25rem 2rem;
+      font-family: var(--mono);
+      font-size: .65rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      letter-spacing: .06em;
+    }
+
+    footer span { color: var(--accent); }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .55s, transform .55s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: .85rem 1rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: .65rem; }
+      section { padding: 4rem 0 1.5rem; }
+      section:first-child { padding-top: 5.5rem; }
+      .info-row { grid-template-columns: 1fr; }
+      .hero-name { font-size: clamp(2rem, 11vw, 3.2rem); }
+      .project-header { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Accessibility: keyboard skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ── NAV ───────────────────────────────────────────── -->
+  <nav aria-label="Main navigation">
+    <a href="#hero" class="nav-logo" aria-label="Galal Ayman — home">ga<span>.</span>dev</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ── HERO ──────────────────────────────────────────── -->
+    <section id="hero" aria-labelledby="hero-name">
+
+      <p class="hero-status" aria-label="Status: Open to opportunities">
+        <span class="status-dot" aria-hidden="true"></span>
+        Open to opportunities
+      </p>
+
+      <h1 class="hero-name" id="hero-name">
+        Galal<br><span class="highlight">Ayman.</span>
+      </h1>
+
+      <p class="hero-role" aria-label="MIS Graduate, AI-Assisted App Builder, Technology Enthusiast, IT Support Learner">
+        MIS Graduate
+        <span class="sep" aria-hidden="true">/</span>AI-Assisted App Builder
+        <span class="sep" aria-hidden="true">/</span>Technology Enthusiast
+      </p>
+
+      <p class="hero-desc">
+        I explore technology through learning, building, and problem-solving. I use AI tools
+        to plan and develop software ideas, and I'm actively growing my knowledge in IT
+        support and networking — one project at a time.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M2 2h12v12H2V2zm1 1v10h10V3H3z"/></svg>
+          View Projects
+        </a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── ABOUT ──────────────────────────────────────────── -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="reveal">
+        <span class="section-tag" aria-hidden="true">01 — About</span>
+        <h2 id="about-heading">Who I Am</h2>
+      </div>
+
+      <div class="about-grid reveal">
+        <article class="about-card">
+          <p>
+            I'm a <strong>Management Information Systems (MIS) graduate</strong> from Egypt
+            with a genuine interest in how technology works and how it can be used to build
+            useful products. My background bridges business thinking and technical
+            problem-solving — I understand systems, processes, and the people who use them.
+          </p>
+        </article>
+        <article class="about-card">
+          <p>
+            I believe in <strong>learning by doing</strong>. I use AI tools to assist in
+            planning, designing, and building software ideas — treating them as a collaborative
+            workflow rather than a shortcut. I'm currently deepening my knowledge of
+            <strong>networking through Cisco Networking Academy</strong> and improving my
+            <strong>English communication</strong> with ELSA Speak.
+          </p>
+        </article>
+      </div>
+
+      <div class="info-row reveal" role="list" aria-label="Personal details">
+        <div class="info-item" role="listitem">
+          <div class="info-label">Location</div>
+          <div class="info-value">📍 Egypt</div>
+        </div>
+        <div class="info-item" role="listitem">
+          <div class="info-label">Degree</div>
+          <div class="info-value">BSc — MIS</div>
+        </div>
+        <div class="info-item" role="listitem">
+          <div class="info-label">Focus Areas</div>
+          <div class="info-value">IT · Networking · AI Tools</div>
+        </div>
+        <div class="info-item" role="listitem">
+          <div class="info-label">Status</div>
+          <div class="info-value" style="color:var(--green)">● Available</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── SKILLS ─────────────────────────────────────────── -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="reveal">
+        <span class="section-tag" aria-hidden="true">02 — Skills</span>
+        <h2 id="skills-heading">What I Work With</h2>
+      </div>
+
+      <div class="skills-block">
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">AI &amp; Productivity Tools</h3>
+          <ul class="tags" role="list" aria-label="AI and productivity tools">
+            <li class="tag green">Claude (Anthropic)</li>
+            <li class="tag green">ChatGPT</li>
+            <li class="tag green">AI-Assisted Development</li>
+            <li class="tag green">ELSA Speak</li>
+            <li class="tag green">Prompt Engineering (Learning)</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Programming Fundamentals</h3>
+          <ul class="tags" role="list" aria-label="Programming skills">
+            <li class="tag featured">Python (Beginner–Intermediate)</li>
+            <li class="tag">Git</li>
+            <li class="tag">GitHub</li>
+            <li class="tag">VS Code</li>
+            <li class="tag">Command Line Basics</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">IT Support</h3>
+          <ul class="tags" role="list" aria-label="IT support skills">
+            <li class="tag">Hardware Troubleshooting</li>
+            <li class="tag">Software Troubleshooting</li>
+            <li class="tag">Wi-Fi &amp; Network Setup</li>
+            <li class="tag">Device Configuration</li>
+            <li class="tag">System Diagnostics</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Networking Fundamentals <span style="font-weight:300;color:var(--muted)">(In Progress)</span></h3>
+          <ul class="tags" role="list" aria-label="Networking skills currently being learned">
+            <li class="tag amber">Cisco Networking Academy</li>
+            <li class="tag amber">IP Addressing (Learning)</li>
+            <li class="tag amber">Routing &amp; Switching Basics (Learning)</li>
+            <li class="tag amber">Network Concepts</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Learning Platforms</h3>
+          <ul class="tags" role="list" aria-label="Platforms used for learning">
+            <li class="tag">Mimo</li>
+            <li class="tag">Elzero Web School</li>
+            <li class="tag">Cisco Networking Academy</li>
+          </ul>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Communication</h3>
+          <ul class="tags" role="list" aria-label="Communication skills">
+            <li class="tag featured">Arabic — Native</li>
+            <li class="tag">English — Intermediate (Actively Improving)</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── PROJECTS ────────────────────────────────────────── -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="reveal">
+        <span class="section-tag" aria-hidden="true">03 — Projects</span>
+        <h2 id="projects-heading">Things I'm Building</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Project 1: Waie -->
+        <article class="project-card in-progress reveal" tabindex="0" aria-label="Waie — The Self-Guardian, in-progress project">
+          <div class="project-header">
+            <h3 class="project-name">Waie — The Self-Guardian</h3>
+            <span class="project-badge badge-wip" aria-label="Work in progress">In Progress</span>
+          </div>
+          <p class="project-desc">
+            A self-discipline and personal productivity Android application, currently in the
+            planning and design phase. The concept focuses on helping users build better habits
+            and reduce digital distractions through structured daily goals and self-reflection
+            prompts.
+          </p>
+          <p class="project-desc" style="margin-bottom:.75rem;">
+            This project is being developed with AI-assisted planning and product design
+            workflows — using AI tools to help define features, structure the user experience,
+            and guide the development process. Not yet published.
+          </p>
+          <div class="project-footer">
+            <ul class="tags" role="list" aria-label="Technologies and concepts">
+              <li class="tag amber">Android App</li>
+              <li class="tag green">AI-Assisted Planning</li>
+              <li class="tag">Product Design</li>
+              <li class="tag">Habit Building</li>
+              <li class="tag">In Development</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Project 2: Python Calculator -->
+        <a
+          href="https://github.com/ga909842-svg/Simple-Python-Calculator"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="project-card reveal"
+          aria-label="Simple Python Calculator — view on GitHub (opens in new tab)"
+        >
+          <div class="project-header">
+            <h3 class="project-name">Simple Python Calculator</h3>
+            <div style="display:flex;align-items:center;gap:.5rem;">
+              <span class="project-badge badge-live">Live</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            A command-line calculator built with Python as a hands-on learning exercise.
+            Demonstrates basic arithmetic operations, user input handling, and simple
+            error checking. Published on GitHub as part of my self-directed Python learning.
+          </p>
+          <div class="project-footer">
+            <ul class="tags" role="list" aria-label="Technologies used">
+              <li class="tag featured">Python</li>
+              <li class="tag">GitHub</li>
+              <li class="tag">CLI App</li>
+              <li class="tag">Learning Project</li>
+            </ul>
+            <span class="project-link" aria-hidden="true">github.com/ga909842-svg/Simple-Python-Calculator</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ── CONTACT ─────────────────────────────────────────── -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="reveal">
+        <span class="section-tag" aria-hidden="true">04 — Contact</span>
+        <h2 id="contact-heading">Let's Connect</h2>
+      </div>
+
+      <div class="contact-card reveal">
+        <p>
+          I'm open to junior IT support roles, technology internships, and opportunities
+          to collaborate on interesting projects. If something here caught your attention,
+          I'd be glad to hear from you.
+        </p>
+        <nav class="contact-links" aria-label="Contact links">
+          <a href="tel:+201208063048" class="contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            <span>+20 1208063048</span>
+          </a>
+          <a href="mailto:ga909842@gmail.com" class="contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>ga909842@gmail.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/galalayman" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>linkedin.com/in/galalayman</span>
+          </a>
+          <a href="https://github.com/ga909842-svg" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0112 6.8c.85.004 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10.01 10.01 0 0022 12c0-5.52-4.48-10-10-10z"/></svg>
+            <span>github.com/ga909842-svg</span>
+          </a>
+        </nav>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer>
+    <p><span>Galal Ayman</span> — Built with HTML &amp; CSS · Hosted on GitHub Pages</p>
+  </footer>
+
+  <!-- ── SCROLL REVEAL ─────────────────────────────────── -->
+  <script>
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
